@@ -1,0 +1,29 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Environment (keep .env.example)
+.env
+!.env.example
+
+# Node
+node_modules/
+
+# IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+
+.devin/
+.claude/
+# Build artifacts
+guide/app/dist/
