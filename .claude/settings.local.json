@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm view *)",
+      "Bash(wait)",
+      "Bash(gh repo *)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(python logs/session_logger.py start)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\12519\\\\.local\\\\bin;$env:Path\"; cd \"C:\\\\Users\\\\12519\\\\Downloads\\\\ai-customer-support-agent-main\\\\ai-customer-support-agent-main\\\\backend\"; uv sync)"
+    ]
+  }
+}
