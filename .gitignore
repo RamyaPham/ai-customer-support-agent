@@ -24,6 +24,5 @@ node_modules/
 
 
 .devin/
-.claude/
 # Build artifacts
 guide/app/dist/
