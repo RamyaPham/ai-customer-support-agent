@@ -19,7 +19,7 @@ class AgentState(MessagesState):
 
 
 def _sanitize_messages(messages):
-    """Ensure ToolMessage content is never empty — Groq rejects empty strings/lists."""
+    """Ensure ToolMessage content is never empty — some providers reject empty strings/lists."""
     sanitized = []
     for msg in messages:
         if isinstance(msg, ToolMessage):

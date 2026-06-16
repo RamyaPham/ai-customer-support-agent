@@ -61,22 +61,11 @@ cp .env.example .env
 
 Open `.env` in any editor and set your API key:
 
-**For Groq (free — recommended):**
-```
-LLM_PROVIDER=groq
-GROQ_API_KEY=gsk_your_key_here
-GROQ_MODEL=llama-3.1-8b-instant
-```
-Sign up free at https://console.groq.com — no credit card required.
-
-**For OpenAI (paid):**
 ```
 LLM_PROVIDER=openai
 OPENAI_API_KEY=sk-proj-your-key-here
 OPENAI_MODEL=gpt-4o-mini
 ```
-
-You only need ONE provider.
 
 ### 2c. Verify seed data
 
@@ -209,8 +198,8 @@ npm run dev                    # http://localhost:3000
 | `uv: command not found` | Install uv: `curl -LsSf https://astral.sh/uv/install.sh \| sh` then restart terminal |
 | `npm: SELF_SIGNED_CERT_IN_CHAIN` | Run `npm config set strict-ssl false` (corporate proxy issue) |
 | Chat returns "LLM API key not configured" | Check `.env` file has correct key, restart backend |
-| Chat returns "quota exceeded" | Your API key has no credits. Add billing or switch to Groq (free) |
-| Chat returns "Connection error" | Corporate firewall blocking the LLM API. Try Groq instead |
+| Chat returns "quota exceeded" | Your API key has no credits. Add billing in your OpenAI account |
+| Chat returns "Connection error" | Corporate firewall blocking the LLM API |
 | Tests fail | Run `uv sync` again, make sure you're in `backend/` directory |
 | Frontend shows blank page | Make sure backend is running on port 8000 first |
 | Port already in use | Kill existing process: `kill $(lsof -ti:8000)` |

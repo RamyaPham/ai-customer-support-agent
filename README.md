@@ -20,7 +20,7 @@ User → React UI → FastAPI → LangGraph Agent → Tools → Eligibility Engi
 - **Python 3.12+**
 - **Node.js 20.19+ or 22+** (v24 LTS recommended)
 - **uv** (Python package manager)
-- **An LLM API key** — Groq (free) or OpenAI
+- **An OpenAI API key**
 
 ---
 
@@ -52,15 +52,8 @@ cp .env.example .env   # Mac/Linux
 copy .env.example .env  # Windows
 ```
 
-Edit `.env` and set your LLM provider. **Groq is free** (sign up at https://console.groq.com):
+Edit `.env` and set your OpenAI API key:
 
-```env
-LLM_PROVIDER=groq
-GROQ_API_KEY=gsk_your_key_here
-GROQ_MODEL=llama-3.1-8b-instant
-```
-
-Or use OpenAI (paid):
 ```env
 LLM_PROVIDER=openai
 OPENAI_API_KEY=sk-...
@@ -157,10 +150,8 @@ open guide/index.html
 
 | Variable | Default | Description |
 |---|---|---|
-| `LLM_PROVIDER` | `groq` | `groq` or `openai` |
-| `GROQ_API_KEY` | — | Required if using Groq (free) |
-| `GROQ_MODEL` | `llama-3.1-8b-instant` | Groq model ID |
-| `OPENAI_API_KEY` | — | Required if using OpenAI |
+| `LLM_PROVIDER` | `openai` | LLM provider |
+| `OPENAI_API_KEY` | — | Required |
 | `OPENAI_MODEL` | `gpt-4o-mini` | OpenAI model ID |
 | `REFUND_WINDOW_DAYS` | `30` | Refund eligibility window |
 | `ESCALATION_THRESHOLD` | `500` | Amount requiring human approval |

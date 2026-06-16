@@ -1,7 +1,7 @@
 # 03 — Implementation & Execution Plan
 **Project:** AI Customer Support Agent — E-commerce Refund Automation
 **Author:** Harsha
-**Stack:** Local-first (no cloud). FastAPI + LangGraph + LLM API (Groq/OpenAI) + React/Tailwind.
+**Stack:** Local-first (no cloud). FastAPI + LangGraph + LLM API (OpenAI) + React/Tailwind.
 
 ---
 
@@ -13,7 +13,7 @@
 | **Package manager** | `uv` | Fast dependency resolution, replaces pip/venv |
 | **API server** | FastAPI 0.136+ + Uvicorn 0.49+ | Async, typed, auto OpenAPI docs, trivial to run locally |
 | **Agent orchestration** | LangGraph 1.2+ | Explicit state-machine loop → maps 1:1 to the trace UI; prebuilt `ToolNode` + `tools_condition` |
-| **LLM** | Groq `llama-3.1-8b-instant` (default, free) or OpenAI `gpt-4o-mini` | Fast, cheap, strong tool-calling; swappable via env |
+| **LLM** | OpenAI `gpt-4o-mini` | Fast, cheap, strong tool-calling |
 | **Data validation** | Pydantic 2.13+ | Typed contracts across tools, API, trace |
 | **Data store** | SQLite (via SQLModel 0.0.38+) | Zero-config, file-based, queryable; committed as seed |
 | **Frontend** | React 19 + Vite 8 + Tailwind CSS 4 | Fast, clean SPA; Tailwind v4 = zero-config CSS |
@@ -21,7 +21,7 @@
 | **Testing** | pytest 9+ | Unit tests for deterministic engine + adversarial prompts |
 | **Tracing** | Custom `TraceStep` model + optional LangSmith | Captures tool I/O, retries, latency, tokens |
 
-> The LLM is swappable behind a thin client interface, so Groq/OpenAI/local can be switched via env without touching agent logic.
+> The LLM is swappable behind a thin client interface, so providers can be switched via env without touching agent logic.
 
 ---
 
@@ -593,7 +593,6 @@ dependencies = [
     "langgraph>=1.2",
     "langchain-core>=1.4",
     "langchain-openai>=1.3",
-    "langchain-groq>=1.1",
     "openai>=2.41",
     "python-dotenv>=1.2",
     "tenacity>=9.1",
@@ -629,11 +628,9 @@ dev = ["pytest>=9.0"]
 ## 13. Configuration (`.env.example`)
 
 ```
-LLM_PROVIDER=groq                             # groq | openai
-GROQ_API_KEY=gsk_...
-GROQ_MODEL=llama-3.1-8b-instant
-# OPENAI_API_KEY=sk-...
-# OPENAI_MODEL=gpt-4o-mini
+LLM_PROVIDER=openai
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-4o-mini
 REFUND_WINDOW_DAYS=30
 ESCALATION_THRESHOLD=500
 ```
@@ -643,8 +640,7 @@ Only an LLM key is required to run — everything else has defaults.
 **Current model options:**
 | Provider | Cheap/Fast (default) | Mid-tier | Notes |
 |---|---|---|---|
-| Groq (free) | `llama-3.1-8b-instant` | `llama-3.3-70b-versatile` | Free tier, fast inference |
-| OpenAI | `gpt-4o-mini` | `gpt-4o` | Both support tool-calling natively |
+| OpenAI | `gpt-4o-mini` | `gpt-4o` | Supports tool-calling natively |
 
 ---
 

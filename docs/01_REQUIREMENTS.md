@@ -167,7 +167,7 @@ The system must work **out of the box with zero configuration errors** and clear
 ## 11. Assumptions
 
 - No specific cloud provider required → **local-first** implementation.
-- LLM access via an API key (Groq or OpenAI) supplied through env var.
+- LLM access via an OpenAI API key supplied through env var.
 - Mock refunds (no real payment processing).
 - Single-tenant demo (no auth needed for admin dashboard).
 

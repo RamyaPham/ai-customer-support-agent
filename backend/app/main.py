@@ -59,7 +59,7 @@ def chat(payload: ChatRequest):
         error_msg = str(e)
         logger.error("Agent invocation failed: %s", error_msg)
         if "Missing credentials" in error_msg or "api_key" in error_msg.lower():
-            raise HTTPException(status_code=503, detail="LLM API key not configured. Set GROQ_API_KEY or OPENAI_API_KEY in backend/.env")
+            raise HTTPException(status_code=503, detail="LLM API key not configured. Set OPENAI_API_KEY in backend/.env")
         if "insufficient_quota" in error_msg or "exceeded" in error_msg.lower():
             raise HTTPException(status_code=503, detail="LLM API quota exceeded. Check your plan and billing.")
         if "401" in error_msg or "authentication" in error_msg.lower() or "invalid" in error_msg.lower():
