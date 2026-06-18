@@ -257,6 +257,5 @@ AI Customer Support/
 │   │   └── components/            # ChatWindow, AdminDashboard, etc.
 │   ├── vite.config.ts
 │   └── package.json
-├── docs/                          # Requirements + design docs
 └── README.md                      # This file
 ```
