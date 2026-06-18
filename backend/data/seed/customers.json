@@ -45,8 +45,8 @@
           ],
           "amount": 529.98,
           "status": "delivered",
-          "purchase_date": "2026-05-10T16:00:00Z",
-          "delivered_date": "2026-05-15T11:00:00Z",
+          "purchase_date": "2026-06-12T16:00:00Z",
+          "delivered_date": "2026-06-15T11:00:00Z",
           "refunded": false
         }
       ]
