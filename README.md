@@ -260,13 +260,3 @@ AI Customer Support/
 ├── docs/                          # Requirements + design docs
 └── README.md                      # This file
 ```
-
----
-
-## Loom Recording Script (≤ 5 min)
-
-1. **(0:00–0:45)** Architecture: Data → Engine → Tools → Agent → API → UI
-2. **(0:45–2:00)** Happy path: valid refund → APPROVED → trace timeline
-3. **(2:00–3:00)** Resilience: prompt injection + >$500 → DENIED/ESCALATED
-4. **(3:00–4:00)** Trace deep-dive: tool I/O, latency, tokens
-5. **(4:00–5:00)** What I'd add before prod
